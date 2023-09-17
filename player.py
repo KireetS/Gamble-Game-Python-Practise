@@ -1,3 +1,6 @@
+import game
+
+
 class Player:
     def __init__(self, name, money):
         self.name = name
@@ -9,4 +12,6 @@ class Player:
                 f"\ncannot bet ${amount} because your balance is only ${self.money}")
         else:
             self.money -= amount
-            print(f"Sorry {self.name} , you have ${self.money} left now")
+            result = game.didplayerwin(self.name, amount)
+            if result != -1:
+                self.money += result
